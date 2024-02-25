@@ -14,30 +14,37 @@
     ],
     "scripts": {
         "start": "npm run watch",
-        "build": "concurrently \"npm:build:*\"",
+        "build": "concurrently --kill-others-on-fail \"npm:build:*\"",
         "build:ws": "npm run build --workspace @wocker/ws",
         "build:utils": "npm run build --workspace @wocker/utils",
         "build:core": "npm run build --workspace @wocker/core",
+        "build:cron": "npm run build --workspace @wocker/cron",
+        "build:plugin-cron": "npm run build --workspace @wocker/cron-plugin",
         "build:plugin-mariadb": "npm run build --workspace @wocker/mariadb-plugin",
         "build:plugin-serveo": "npm run build --workspace @wocker/serveo-plugin",
-        "build:plugin-test": "npm run build --workspace @wocker/test-plugin",
+        "build:plugin-example": "npm run build --workspace @wocker/example-plugin",
         "build:kp-cli": "npm run build --workspace @kearisp/cli",
         "watch": "concurrently \"npm:watch:*\"",
         "watch:ws": "npm run watch --workspace @wocker/ws",
         "watch:utils": "npm run watch --workspace @wocker/utils",
         "watch:core": "npm run watch --workspace @wocker/core",
+        "watch:cron": "npm run watch --workspace @wocker/cron",
+        "watch:plugin-cron": "npm run watch --workspace @wocker/cron-plugin",
         "watch:plugin-mariadb": "npm run watch --workspace @wocker/mariadb-plugin",
         "watch:plugin-serveo": "npm run watch --workspace @wocker/serveo-plugin",
-        "watch:plugin-test": "npm run watch --workspace @wocker/test-plugin",
+        "watch:plugin-example": "npm run watch --workspace @wocker/example-plugin",
         "watch:kp-cli": "npm run watch --workspace @kearisp/cli"
     },
     "dependencies": {
-        "@kearisp/cli": "^1.0.2",
+        "@kearisp/cli": "^1.0.5",
         "@wocker/core": "^1.0.3",
+        "@wocker/cron-plugin": "^1.0.0",
+        "@wocker/example-plugin": "^1.0.0",
         "@wocker/mariadb-plugin": "^1.0.0",
         "@wocker/serveo-plugin": "^1.0.0",
-        "@wocker/test-plugin": "^1.0.1",
-        "@wocker/utils": "^1.0.1",
+        "@wocker/utils": "^1.0.1"
+    },
+    "devDependencies": {
         "concurrently": "^8.2.2"
     }
 }
