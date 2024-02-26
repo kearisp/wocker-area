@@ -25,3 +25,6 @@
 [submodule "packages/ws"]
 	path = packages/ws
 	url = git@github.com:kearisp/wocker-ws.git
+[submodule "packages/plugin-pgsql"]
+	path = packages/plugin-pgsql
+	url = git@github.com:kearisp/wocker-pgsql-plugin.git
