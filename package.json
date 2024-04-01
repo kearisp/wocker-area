@@ -23,6 +23,8 @@
         "build:plugin-mariadb": "npm run build --workspace @wocker/mariadb-plugin",
         "build:plugin-pgsql": "npm run build --workspace @wocker/pgsql-plugin",
         "build:plugin-serveo": "npm run build --workspace @wocker/serveo-plugin",
+        "build:plugin-ngrok": "npm run build --workspace @wocker/ngrok-plugin",
+        "build:plugin-redis": "npm run build --workspace @wocker/redis-plugin",
         "build:plugin-example": "npm run build --workspace @wocker/example-plugin",
         "build:kp-cli": "npm run build --workspace @kearisp/cli",
         "watch": "concurrently \"npm:watch:*\"",
@@ -34,6 +36,8 @@
         "watch:plugin-mariadb": "npm run watch --workspace @wocker/mariadb-plugin",
         "watch:plugin-pgsql": "npm run watch --workspace @wocker/pgsql-plugin",
         "watch:plugin-serveo": "npm run watch --workspace @wocker/serveo-plugin",
+        "watch:plugin-ngrok": "npm run watch --workspace @wocker/ngrok-plugin",
+        "watch:plugin-redis": "npm run watch --workspace @wocker/redis-plugin",
         "watch:plugin-example": "npm run watch --workspace @wocker/example-plugin",
         "watch:kp-cli": "npm run watch --workspace @kearisp/cli"
     },
@@ -43,11 +47,14 @@
         "@wocker/cron-plugin": "^1.0.0",
         "@wocker/example-plugin": "^1.0.0",
         "@wocker/mariadb-plugin": "^1.0.1",
+        "@wocker/ngrok-plugin": "^1.0.0",
         "@wocker/pgsql-plugin": "^1.0.0",
+        "@wocker/redis-plugin": "^1.0.0",
         "@wocker/serveo-plugin": "^1.0.1",
         "@wocker/utils": "^1.0.2"
     },
     "devDependencies": {
+        "@types/node": "^20.12.7",
         "concurrently": "^8.2.2"
     }
 }
