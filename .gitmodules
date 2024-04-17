@@ -1,18 +1,9 @@
-[submodule "packages/kp-cli"]
-	path = packages/kp-cli
-	url = git@github.com:kearisp/kp-cli.git
 [submodule "packages/core"]
 	path = packages/core
 	url = git@github.com:kearisp/wocker-core.git
 [submodule "packages/cron"]
 	path = packages/cron
 	url = git@github.com:kearisp/wocker-cron.git
-[submodule "packages/plugin-serveo"]
-	path = packages/plugin-serveo
-	url = git@github.com:kearisp/wocker-serveo-plugin.git
-[submodule "packages/plugin-ngrok"]
-	path = packages/plugin-ngrok
-	url = git@github.com:kearisp/wocker-ngrok-plugin.git
 [submodule "packages/plugin-mariadb"]
 	path = packages/plugin-mariadb
 	url = git@github.com:kearisp/wocker-mariadb-plugin.git
@@ -31,3 +22,9 @@
 [submodule "packages/ws"]
 	path = packages/ws
 	url = git@github.com:kearisp/wocker-ws.git
+[submodule "packages/plugin-maildev"]
+	path = packages/plugin-maildev
+	url = git@github.com:kearisp/wocker-maildev-plugin.git
+[submodule "packages/plugin-rproxy"]
+	path = packages/plugin-rproxy
+	url = git@github.com:kearisp/wocker-rproxy-plugin.git
