@@ -13,9 +13,6 @@
 [submodule "packages/plugin-cron"]
 	path = packages/plugin-cron
 	url = git@github.com:kearisp/wocker-cron-plugin.git
-[submodule "packages/plugin-example"]
-	path = packages/plugin-example
-	url = git@github.com:kearisp/wocker-example-plugin.git
 [submodule "packages/utils"]
 	path = packages/utils
 	url = git@github.com:kearisp/wocker-utils.git
