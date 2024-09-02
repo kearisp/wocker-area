@@ -1,6 +1,6 @@
 {
     "name": "@wocker/area",
-    "version": "1.0.7",
+    "version": "1.0.8",
     "author": "Kris Papercut <krispcut@gmail.com>",
     "description": "Wocker workspace",
     "license": "MIT",
@@ -37,13 +37,13 @@
         "watch:plugin-redis": "npm run watch --workspace @wocker/redis-plugin",
         "watch:plugin-rproxy": "npm run watch --workspace @wocker/rproxy-plugin",
         "test": "concurrently \"npm:test:*\"",
-        "test:core": "npm run test --workspace @wocker/core",
+        "test:core": "npm run test --workspace @wocker/core -- --coverage",
         "test-watch": "concurrently \"npm:test-watch:*\"",
         "test-watch:core": "npm run test-watch --workspace @wocker/core"
     },
     "dependencies": {
         "@kearisp/cli": "^2.0.4",
-        "@wocker/core": "^1.0.14",
+        "@wocker/core": "^1.0.16",
         "@wocker/cron-plugin": "^1.0.3",
         "@wocker/maildev-plugin": "^1.0.1",
         "@wocker/mariadb-plugin": "^1.0.6",
