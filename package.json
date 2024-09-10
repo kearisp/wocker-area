@@ -42,15 +42,13 @@
         "test-watch:core": "npm run test-watch --workspace @wocker/core"
     },
     "dependencies": {
-        "@kearisp/cli": "^2.0.4",
-        "@wocker/core": "^1.0.16",
+        "@wocker/core": "^1.0.17",
         "@wocker/cron-plugin": "^1.0.3",
         "@wocker/maildev-plugin": "^1.0.1",
         "@wocker/mariadb-plugin": "^1.0.6",
         "@wocker/pgsql-plugin": "^1.0.6",
         "@wocker/redis-plugin": "^1.0.1",
-        "@wocker/rproxy-plugin": "^1.0.4",
-        "@wocker/utils": "^1.0.5"
+        "@wocker/rproxy-plugin": "^1.0.4"
     },
     "devDependencies": {
         "@types/node": "^20.12.7",
