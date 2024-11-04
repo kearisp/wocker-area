@@ -1,6 +1,6 @@
 {
     "name": "@wocker/area",
-    "version": "1.0.8",
+    "version": "1.0.11",
     "author": "Kris Papercut <krispcut@gmail.com>",
     "description": "Wocker workspace",
     "license": "MIT",
@@ -46,7 +46,7 @@
     "dependencies": {
         "@wocker/core": "^1.0.19",
         "@wocker/cron-plugin": "^1.0.3",
-        "@wocker/maildev-plugin": "^1.0.1",
+        "@wocker/maildev-plugin": "^1.0.2",
         "@wocker/mariadb-plugin": "^1.0.6",
         "@wocker/pgsql-plugin": "^1.0.6",
         "@wocker/redis-plugin": "^1.0.2",
