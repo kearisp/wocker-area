@@ -1,6 +1,6 @@
 {
     "name": "@wocker/area",
-    "version": "1.0.11",
+    "version": "1.0.12",
     "author": "Kris Papercut <krispcut@gmail.com>",
     "description": "Wocker workspace",
     "license": "MIT",
@@ -15,7 +15,6 @@
     "scripts": {
         "start": "npm run watch",
         "build": "concurrently --kill-others-on-fail \"npm:build:*\"",
-        "build:ws": "npm run build --workspace @wocker/ws",
         "build:utils": "npm run build --workspace @wocker/utils",
         "build:core": "npm run build --workspace @wocker/core",
         "build:cron": "npm run build --workspace @wocker/cron",
@@ -26,8 +25,8 @@
         "build:plugin-redis": "npm run build --workspace @wocker/redis-plugin",
         "build:plugin-rproxy": "npm run build --workspace @wocker/rproxy-plugin",
         "build:plugin-storage": "npm run build --workspace @wocker/storage-plugin",
+        "build:ws": "npm run build --workspace @wocker/ws",
         "watch": "concurrently \"npm:watch:*\"",
-        "watch:ws": "npm run watch --workspace @wocker/ws",
         "watch:utils": "npm run watch --workspace @wocker/utils",
         "watch:core": "npm run watch --workspace @wocker/core",
         "watch:cron": "npm run watch --workspace @wocker/cron",
@@ -38,6 +37,7 @@
         "watch:plugin-redis": "npm run watch --workspace @wocker/redis-plugin",
         "watch:plugin-rproxy": "npm run watch --workspace @wocker/rproxy-plugin",
         "watch:plugin-storage": "npm run watch --workspace @wocker/storage-plugin",
+        "watch:ws": "npm run watch --workspace @wocker/ws",
         "test": "concurrently \"npm:test:*\"",
         "test:core": "npm run test --workspace @wocker/core -- --coverage",
         "test-watch": "concurrently \"npm:test-watch:*\"",
