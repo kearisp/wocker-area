@@ -1,9 +1,6 @@
 [submodule "packages/core"]
 	path = packages/core
 	url = git@github.com:kearisp/wocker-core.git
-[submodule "packages/cron"]
-	path = packages/cron
-	url = git@github.com:kearisp/wocker-cron.git
 [submodule "packages/plugin-mariadb"]
 	path = packages/plugin-mariadb
 	url = git@github.com:kearisp/wocker-mariadb-plugin.git
