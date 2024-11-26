@@ -4,6 +4,9 @@
 [submodule "packages/plugin-mariadb"]
 	path = packages/plugin-mariadb
 	url = git@github.com:kearisp/wocker-mariadb-plugin.git
+[submodule "packages/plugin-mongodb"]
+	path = packages/plugin-mongodb
+	url = git@github.com:kearisp/wocker-mongodb-plugin.git
 [submodule "packages/plugin-pgsql"]
 	path = packages/plugin-pgsql
 	url = git@github.com:kearisp/wocker-pgsql-plugin.git

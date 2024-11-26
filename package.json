@@ -1,6 +1,6 @@
 {
     "name": "@wocker/area",
-    "version": "1.0.18",
+    "version": "1.0.19",
     "author": "Kris Papercut <krispcut@gmail.com>",
     "description": "Wocker workspace",
     "license": "MIT",
@@ -20,6 +20,7 @@
         "build:plugin-cron": "npm run build --workspace @wocker/cron-plugin",
         "build:plugin-maildev": "npm run build --workspace @wocker/maildev-plugin",
         "build:plugin-mariadb": "npm run build --workspace @wocker/mariadb-plugin",
+        "build:plugin-mongodb": "npm run build --workspace @wocker/mongodb-plugin",
         "build:plugin-pgsql": "npm run build --workspace @wocker/pgsql-plugin",
         "build:plugin-redis": "npm run build --workspace @wocker/redis-plugin",
         "build:plugin-rproxy": "npm run build --workspace @wocker/rproxy-plugin",
@@ -31,6 +32,7 @@
         "watch:plugin-cron": "npm run watch --workspace @wocker/cron-plugin",
         "watch:plugin-maildev": "npm run watch --workspace @wocker/maildev-plugin",
         "watch:plugin-mariadb": "npm run watch --workspace @wocker/mariadb-plugin",
+        "watch:plugin-mongodb": "npm run watch --workspace @wocker/mongodb-plugin",
         "watch:plugin-pgsql": "npm run watch --workspace @wocker/pgsql-plugin",
         "watch:plugin-redis": "npm run watch --workspace @wocker/redis-plugin",
         "watch:plugin-rproxy": "npm run watch --workspace @wocker/rproxy-plugin",
@@ -46,13 +48,13 @@
         "@wocker/cron-plugin": "^1.0.4",
         "@wocker/maildev-plugin": "^1.0.2",
         "@wocker/mariadb-plugin": "^1.0.9",
+        "@wocker/mongodb-plugin": "^1.0.0",
         "@wocker/pgsql-plugin": "^1.0.7",
         "@wocker/redis-plugin": "^1.0.2",
         "@wocker/rproxy-plugin": "^1.0.6",
         "@wocker/storage-plugin": "^1.0.1"
     },
     "devDependencies": {
-        "@types/node": "^20.12.7",
         "concurrently": "^8.2.2"
     }
 }
