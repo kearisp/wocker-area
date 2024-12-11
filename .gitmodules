@@ -28,3 +28,6 @@
 [submodule "packages/plugin-storage"]
 	path = packages/plugin-storage
 	url = git@github.com:kearisp/wocker-storage-plugin.git
+[submodule "packages/plugin-ollama"]
+	path = packages/plugin-ollama
+	url = git@github.com:kearisp/wocker-ollama-plugin.git

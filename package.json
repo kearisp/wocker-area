@@ -1,10 +1,10 @@
 {
     "name": "@wocker/area",
-    "version": "1.0.20",
+    "version": "1.0.21",
     "author": "Kris Papercut <krispcut@gmail.com>",
     "description": "Wocker workspace",
     "license": "MIT",
-    "main": "lib/index.js",
+    "main": "./lib/index.js",
     "keywords": [
         "wocker",
         "cli"
@@ -22,6 +22,7 @@
         "build:plugin-mariadb": "npm run build --workspace @wocker/mariadb-plugin",
         "build:plugin-mongodb": "npm run build --workspace @wocker/mongodb-plugin",
         "build:plugin-pgsql": "npm run build --workspace @wocker/pgsql-plugin",
+        "build:plugin-ollama": "npm run build --workspace @wocker/ollama-plugin",
         "build:plugin-redis": "npm run build --workspace @wocker/redis-plugin",
         "build:plugin-rproxy": "npm run build --workspace @wocker/rproxy-plugin",
         "build:plugin-storage": "npm run build --workspace @wocker/storage-plugin",
@@ -34,6 +35,7 @@
         "watch:plugin-mariadb": "npm run watch --workspace @wocker/mariadb-plugin",
         "watch:plugin-mongodb": "npm run watch --workspace @wocker/mongodb-plugin",
         "watch:plugin-pgsql": "npm run watch --workspace @wocker/pgsql-plugin",
+        "watch:plugin-ollama": "npm run watch --workspace @wocker/ollama-plugin",
         "watch:plugin-redis": "npm run watch --workspace @wocker/redis-plugin",
         "watch:plugin-rproxy": "npm run watch --workspace @wocker/rproxy-plugin",
         "watch:plugin-storage": "npm run watch --workspace @wocker/storage-plugin",
@@ -44,17 +46,18 @@
         "test-watch:core": "npm run test-watch --workspace @wocker/core"
     },
     "dependencies": {
-        "@wocker/core": "^1.0.20",
+        "@wocker/core": "^1.0.21",
         "@wocker/cron-plugin": "^1.0.4",
         "@wocker/maildev-plugin": "^1.0.2",
-        "@wocker/mariadb-plugin": "^1.0.10",
+        "@wocker/mariadb-plugin": "^1.0.11",
         "@wocker/mongodb-plugin": "^1.0.0",
-        "@wocker/pgsql-plugin": "^1.0.7",
-        "@wocker/redis-plugin": "^1.0.2",
+        "@wocker/ollama-plugin": "^1.0.0",
+        "@wocker/pgsql-plugin": "^1.0.8",
+        "@wocker/redis-plugin": "^1.0.3",
         "@wocker/rproxy-plugin": "^1.0.6",
         "@wocker/storage-plugin": "^1.0.1"
     },
     "devDependencies": {
-        "concurrently": "^8.2.2"
+        "concurrently": "^9.1.0"
     }
 }
