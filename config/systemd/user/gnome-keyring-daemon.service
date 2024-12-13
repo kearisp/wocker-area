@@ -1,0 +1,12 @@
+[Unit]
+Description=GNOME Keyring Daemon
+Before=dbus.service
+Requires=dbus.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/gnome-keyring-daemon --foreground --components=secrets,ssh,gpg
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

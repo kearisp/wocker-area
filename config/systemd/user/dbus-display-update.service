@@ -1,0 +1,11 @@
+[Unit]
+Description=Update systemd user environment variables
+After=gnome-keyring-daemon.service
+Requires=dbus.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/dbus-update-activation-environment --systemd DISPLAY
+
+[Install]
+WantedBy=default.target
