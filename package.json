@@ -1,6 +1,6 @@
 {
     "name": "@wocker/area",
-    "version": "1.0.23",
+    "version": "1.0.24",
     "author": "Kris Papercut <krispcut@gmail.com>",
     "description": "Wocker workspace",
     "license": "MIT",
@@ -14,7 +14,7 @@
     ],
     "scripts": {
         "start": "npm run watch",
-        "clear": "rm ./package-lock.json && rm -rf ./node_modules && rm -rf ./packages/*/node_modules rm -rf ./packages/*/lib",
+        "clear": "rm ./package-lock.json && rm -rf ./node_modules && rm -rf ./packages/*/node_modules && rm -rf ./packages/*/lib && rm -rf ./packages/*/coverage",
         "build": "concurrently --kill-others-on-fail \"npm:build:*\"",
         "build:core": "npm run await:utils && npm run build --workspace @wocker/core",
         "build:plugin-cron": "npm run await:core && npm run build --workspace @wocker/cron-plugin",
