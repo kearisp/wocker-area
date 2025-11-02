@@ -1,6 +1,6 @@
 {
     "name": "@wocker/area",
-    "version": "1.0.25",
+    "version": "1.0.26",
     "author": "Kris Papercut <krispcut@gmail.com>",
     "description": "Wocker workspace",
     "license": "MIT",
@@ -10,13 +10,14 @@
         "cli"
     ],
     "workspaces": [
-        "packages/*"
+        "packages/*",
+        "plugins/*"
     ],
     "scripts": {
         "start": "npm run watch",
-        "clear": "rm ./package-lock.json && rm -rf ./node_modules && rm -rf ./packages/*/node_modules && rm -rf ./packages/*/lib && rm -rf ./packages/*/coverage",
         "build": "concurrently --kill-others-on-fail \"npm:build:*\"",
-        "build:core": "npm run await:utils && npm run build --workspace @wocker/core",
+        "prebuild:core": "concurrently --kill-others-on-fail \"npm:await:utils\"",
+        "build:core": "npm run build --workspace @wocker/core",
         "build:plugin-cron": "npm run await:core && npm run build --workspace @wocker/cron-plugin",
         "build:plugin-mail": "npm run await:core && npm run build --workspace @wocker/mail-plugin",
         "build:plugin-mariadb": "npm run await:core && npm run build --workspace @wocker/mariadb-plugin",
@@ -29,7 +30,8 @@
         "build:plugin-storage": "npm run await:core && npm run build --workspace @wocker/storage-plugin",
         "build:testing": "npm run await:core && npm run build --workspace @wocker/testing",
         "build:utils": "npm run build --workspace @wocker/utils",
-        "build:ws": "npm run await:core && npm run build --workspace @wocker/ws",
+        "prebuild:ws": "concurrently --kill-others-on-fail \"npm:await:utils\"",
+        "build:ws": "npm run build --workspace @wocker/ws",
         "watch": "concurrently \"npm:watch:*\"",
         "watch-all": "concurrently \"npm:watch:*\" \"npm:test-watch:*\"",
         "watch:core": "npm run await:utils && npm run watch --workspace @wocker/core",
@@ -45,7 +47,7 @@
         "watch:plugin-storage": "npm run await:core && npm run watch --workspace @wocker/storage-plugin",
         "watch:testing": "npm run await:core && npm run watch --workspace @wocker/testing",
         "watch:utils": "npm run watch --workspace @wocker/utils",
-        "watch:ws": "npm run await:core && npm run watch --workspace @wocker/ws",
+        "watch:ws": "npm run await:docker && npm run watch --workspace @wocker/ws",
         "await:core": "wait-on ./packages/core/lib/tsconfig.tsbuildinfo",
         "await:utils": "wait-on ./packages/utils/lib/tsconfig.tsbuildinfo",
         "test": "concurrently --kill-others-on-fail \"npm:test:*\"",
@@ -58,6 +60,10 @@
         "test-watch:testing": "npm run test-watch --workspace @wocker/testing -- --coverage",
         "test-watch:utils": "npm run test-watch --workspace @wocker/utils -- --coverage",
         "test-watch:ws": "npm run test-watch --workspace @wocker/ws -- --coverage",
+        "clear": "concurrently --kill-others-on-fail \"npm:clear:*\"",
+        "clear:root": "rm ./package-lock.json && rm -rf ./node_modules",
+        "clear:packages": "rm -rf ./packages/*/lib && rm -rf ./packages/*/coverage && rm -rf ./packages/*/node_modules",
+        "clear:plugins": "rm -rf ./plugins/*/lib && rm -rf ./plugins/*/coverage && rm -rf ./plugins/*/node_modules",
         "record-docker": "node ./bin/record-docker.js"
     },
     "dependencies": {
@@ -71,7 +77,8 @@
         "@wocker/pgsql-plugin": "*",
         "@wocker/redis-plugin": "*",
         "@wocker/rproxy-plugin": "*",
-        "@wocker/storage-plugin": "*"
+        "@wocker/storage-plugin": "*",
+        "@wocker/testing": "*"
     },
     "devDependencies": {
         "concurrently": "^9.1.0",

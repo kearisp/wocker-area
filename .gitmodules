@@ -1,36 +1,9 @@
+[submodule "docs"]
+	path = docs
+	url = git@github.com:kearisp/wocker.git
 [submodule "packages/core"]
 	path = packages/core
 	url = git@github.com:kearisp/wocker-core.git
-[submodule "packages/plugin-cron"]
-	path = packages/plugin-cron
-	url = git@github.com:kearisp/wocker-cron-plugin.git
-[submodule "packages/plugin-mail"]
-	path = packages/plugin-mail
-	url = git@github.com:kearisp/wocker-mail-plugin.git
-[submodule "packages/plugin-mariadb"]
-	path = packages/plugin-mariadb
-	url = git@github.com:kearisp/wocker-mariadb-plugin.git
-[submodule "packages/plugin-memcached"]
-	path = packages/plugin-memcached
-	url = git@github.com:kearisp/wocker-memcached-plugin.git
-[submodule "packages/plugin-mongodb"]
-	path = packages/plugin-mongodb
-	url = git@github.com:kearisp/wocker-mongodb-plugin.git
-[submodule "packages/plugin-ollama"]
-	path = packages/plugin-ollama
-	url = git@github.com:kearisp/wocker-ollama-plugin.git
-[submodule "packages/plugin-pgsql"]
-	path = packages/plugin-pgsql
-	url = git@github.com:kearisp/wocker-pgsql-plugin.git
-[submodule "packages/plugin-redis"]
-	path = packages/plugin-redis
-	url = git@github.com:kearisp/wocker-redis-plugin.git
-[submodule "packages/plugin-rproxy"]
-	path = packages/plugin-rproxy
-	url = git@github.com:kearisp/wocker-rproxy-plugin.git
-[submodule "packages/plugin-storage"]
-	path = packages/plugin-storage
-	url = git@github.com:kearisp/wocker-storage-plugin.git
 [submodule "packages/testing"]
 	path = packages/testing
 	url = git@github.com:kearisp/wocker-testing.git
@@ -40,3 +13,33 @@
 [submodule "packages/ws"]
 	path = packages/ws
 	url = git@github.com:kearisp/wocker-ws.git
+[submodule "plugins/cron"]
+	path = plugins/cron
+	url = git@github.com:kearisp/wocker-cron-plugin.git
+[submodule "plugins/mail"]
+	path = plugins/mail
+	url = git@github.com:kearisp/wocker-mail-plugin.git
+[submodule "plugins/mariadb"]
+	path = plugins/mariadb
+	url = git@github.com:kearisp/wocker-mariadb-plugin.git
+[submodule "plugins/memcached"]
+	path = plugins/memcached
+	url = git@github.com:kearisp/wocker-memcached-plugin.git
+[submodule "plugins/mongodb"]
+	path = plugins/mongodb
+	url = git@github.com:kearisp/wocker-mongodb-plugin.git
+[submodule "plugins/ollama"]
+	path = plugins/ollama
+	url = git@github.com:kearisp/wocker-ollama-plugin.git
+[submodule "plugins/pgsql"]
+	path = plugins/pgsql
+	url = git@github.com:kearisp/wocker-pgsql-plugin.git
+[submodule "plugins/redis"]
+	path = plugins/redis
+	url = git@github.com:kearisp/wocker-redis-plugin.git
+[submodule "plugins/rproxy"]
+	path = plugins/rproxy
+	url = git@github.com:kearisp/wocker-rproxy-plugin.git
+[submodule "plugins/storage"]
+	path = plugins/storage
+	url = git@github.com:kearisp/wocker-storage-plugin.git
