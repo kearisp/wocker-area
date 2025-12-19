@@ -1,12 +1,21 @@
 [submodule "docs"]
 	path = docs
 	url = git@github.com:kearisp/wocker.git
+[submodule "modules/docker"]
+	path = modules/docker
+	url = git@github.com:kearisp/wocker-docker-module.git
+[submodule "modules/docker-mock"]
+	path = modules/docker-mock
+	url = git@github.com:kearisp/wocker-docker-mock-module.git
 [submodule "packages/core"]
 	path = packages/core
 	url = git@github.com:kearisp/wocker-core.git
 [submodule "packages/testing"]
 	path = packages/testing
 	url = git@github.com:kearisp/wocker-testing.git
+[submodule "packages/types"]
+	path = packages/types
+	url = git@github.com:kearisp/wocker-types.git
 [submodule "packages/utils"]
 	path = packages/utils
 	url = git@github.com:kearisp/wocker-utils.git
@@ -16,6 +25,9 @@
 [submodule "plugins/cron"]
 	path = plugins/cron
 	url = git@github.com:kearisp/wocker-cron-plugin.git
+[submodule "plugins/elastic"]
+	path = plugins/elastic
+	url = git@github.com:kearisp/wocker-elastic-plugin.git
 [submodule "plugins/mail"]
 	path = plugins/mail
 	url = git@github.com:kearisp/wocker-mail-plugin.git
