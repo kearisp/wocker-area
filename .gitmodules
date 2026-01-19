@@ -13,9 +13,6 @@
 [submodule "packages/testing"]
 	path = packages/testing
 	url = git@github.com:kearisp/wocker-testing.git
-[submodule "packages/types"]
-	path = packages/types
-	url = git@github.com:kearisp/wocker-types.git
 [submodule "packages/utils"]
 	path = packages/utils
 	url = git@github.com:kearisp/wocker-utils.git

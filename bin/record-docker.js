@@ -1,21 +1,19 @@
 #!/usr/bin/env node
 
-
+const Path = require("path")
 const {Cli, Logger} = require("@kearisp/cli"),
       Docker = require("dockerode");
 const {FileSystem} = require("@wocker/core");
 const {
     Fixtures,
     ModemRecorder
-} = require("@wocker/testing");
+} = require("docker-modem-mock");
 
 
 Logger.unmute();
 
-const getContext = (version, path) => {
-    const fs = (new FileSystem(__dirname))
-        .cd("/../packages")
-        .cd(path)
+const getContext = (version, name) => {
+    const fs = (new FileSystem(Path.dirname(require.resolve(`${name}/package.json`))))
         .cd("fixtures");
 
     if(!fs.exists()) {

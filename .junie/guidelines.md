@@ -8,6 +8,9 @@ Wocker is a monorepo workspace for Docker-based web project management. The repo
 
 ```
 wocker-area/
+├── modules/          # System modules
+│   ├── docker/       # Docker management service
+│   └── docker-mock/  # Docker API mocking for tests
 ├── packages/         # Core packages
 │   ├── core/         # Core functionality with dependency injection
 │   ├── testing/      # Testing utilities and mocks
@@ -32,9 +35,9 @@ wocker-area/
 ### Dependencies and Build Order
 
 The project has a strict build dependency chain:
-1. **utils** - No dependencies, builds first
-2. **core** - Depends on utils
-3. **All other packages/plugins** - Depend on core
+1. **utils** – No dependencies, builds early
+2. **core** – No dependencies, builds early
+3. **All other packages/plugins** – Depend on core
 
 Build scripts use `wait-on` to ensure dependencies are built before dependent packages.
 
@@ -159,7 +162,9 @@ describe("ComponentName", (): void => {
 
 ### Testing with Dependency Injection
 
-The project includes a custom `@wocker/testing` package with `Test` utility for creating testing modules:
+The project includes a custom `@wocker/testing` package with `Test` utility for creating testing modules.
+
+#### Basic Usage
 
 ```typescript
 import {Test} from "@wocker/testing";
@@ -173,6 +178,32 @@ describe("MyService", (): void => {
 
         const service = context.get(MyService);
         expect(service).toBeInstanceOf(MyService);
+    });
+});
+```
+
+#### Overriding Providers
+
+You can override providers (e.g., to use mocks) using `overrideProvider()`:
+
+```typescript
+import {Test} from "@wocker/testing";
+import {MyService} from "./MyService";
+import {OtherService} from "./OtherService";
+
+describe("MyService", (): void => {
+    it("should work with mocked dependency", async (): Promise<void> => {
+        const mockValue = { getData: jest.fn() };
+        
+        const context = await Test.createTestingModule({
+            providers: [MyService, OtherService]
+        })
+        .overrideProvider(OtherService)
+        .useValue(mockValue)
+        .build();
+
+        const service = context.get(MyService);
+        // ... test logic
     });
 });
 ```
@@ -248,7 +279,7 @@ class MyModule {}
 ### Adding a New Package
 
 1. Create directory in `packages/` or `plugins/`
-2. Add `package.json` with appropriate name (`@wocker/<name>`)
+2. Add `package.json` with the appropriate name (`@wocker/<name>`)
 3. Add `tsconfig.json` and `tsconfig.build.json`
 4. Add `jest.config.ts` if tests are needed
 5. Update root `package.json` scripts with build/watch/test commands
@@ -294,7 +325,7 @@ npm install <package> --workspace @wocker/<package-name>
 
 ### Versioning
 
-All packages currently share version `1.0.26` - consider synchronized versioning when releasing.
+All packages currently share the same version (e.g. `1.0.28`) - consider synchronized versioning when releasing.
 
 ### Package Manager
 
@@ -302,8 +333,59 @@ The project uses **npm** with workspaces (not yarn or pnpm).
 
 ### Docker Integration
 
-The workspace includes various Docker-related plugins. Some packages may interact with Docker daemon for testing (see `@wocker/testing` for Docker mocks).
+The workspace includes various Docker-related plugins. Some packages may interact with the Docker daemon for testing.
+
+#### Docker Mocking
+
+For tests involving Docker, the `@wocker/docker-mock-module` provides utilities to mock the Docker API. You can find examples in `modules/docker/src/services/ImageService.spec.ts` using `ModemMock`.
 
 ### Binary Executables
 
 The `@wocker/ws` package provides a CLI tool accessible via the `ws` command when installed.
+
+## CLI Commands
+
+The `ws` command is the main entry point for managing workspaces. Commands are organized into namespaces.
+
+### Core Commands
+
+- `ws init` - Initialize a new project in the current directory
+- `ws start` - Start the project containers
+- `ws stop` - Stop the project containers
+- `ws ps` - List project containers and their status
+- `ws logs` - View project logs
+- `ws exec` - Execute a command in the project container
+- `ws run <script>` - Run a predefined script
+
+### Project Configuration
+
+- `ws config` - View or modify project configuration
+- `ws domain:add <domain>` - Add a domain to the project
+- `ws port:add <host>:<container>` - Map a host port to a container port
+- `ws volume:mount <path>` - Mount a volume
+
+### Plugin Management
+
+- `ws plugins` - List installed plugins
+- `ws plugin:install <name>` - Install a new plugin
+- `ws plugin:remove <name>` - Remove a plugin
+
+### Proxy and DNS
+
+- `ws proxy:start` - Start the global nginx proxy
+- `ws dns:start` - Start the local DNS server (experimental for now)
+- `ws certs` - Manage SSL certificates
+
+### Plugin-Specific Commands
+
+When a plugin is installed, it may add its own namespace of commands:
+
+- **MariaDB**: `ws mariadb:*` (e.g., `ws mariadb:create`, `ws mariadb:dump`)
+- **PostgreSQL**: `ws pgsql:*`
+- **Redis**: `ws redis:*`
+- **MongoDB**: `ws mongodb:*`
+
+To see the full list of available commands based on your installed plugins, run:
+```bash
+ws --help
+```

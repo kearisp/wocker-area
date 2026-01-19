@@ -45,9 +45,10 @@ Dependency Updates
 How to compile the changelog
 1) Collect commits since the previous tag (or from the start of the branch if first release).
 2) Group by type and scope based on commit messages (Conventional Commits: feat, fix, perf, docs, refactor, chore, deps).
-3) Promote commits with BREAKING CHANGE footers into “Breaking Changes” with a concise impact statement.
-4) De‑duplicate entries when multiple commits contribute to the same user‑visible change; keep the highest‑level description.
-5) Ensure language is clear and consistent; avoid internal-only jargon.
+3) Exclude version-bump commits (e.g., "bump version", "release vX.X.X") from the changelog.
+4) Promote commits with BREAKING CHANGE footers into “Breaking Changes” with a concise impact statement.
+5) De‑duplicate entries when multiple commits contribute to the same user‑visible change; keep the highest‑level description.
+6) Ensure language is clear and consistent; avoid internal-only jargon.
 
 Version header format
 - Use the tag or release name as the heading, e.g.: v1.4.0 — 2025‑09‑30
@@ -58,28 +59,28 @@ Template
 ## vX.Y.Z — YYYY‑MM‑DD
 
 ### Breaking Changes
-- <impact note>
+- impact note
 
 ### Features
-- <summary>
+- summary
 
 ### Fixes
-- <summary>
+- summary
 
 ### Performance
-- <summary>
+- summary
 
 ### Documentation
-- <summary>
+- summary
 
 ### Refactoring
-- <summary>
+- summary
 
 ### Chore / Maintenance
-- <summary>
+- summary
 
 ### Dependency Updates
-- <summary>
+- summary
 
 Quality checklist
 - Entries are in English and concise.
