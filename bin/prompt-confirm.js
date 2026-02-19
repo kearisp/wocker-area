@@ -5,8 +5,7 @@ const {promptConfirm} = require("@wocker/utils");
 
 promptConfirm({
     message: "Yes or no",
-    required: "Value is required",
-    default: false
+    // required: "Hello, this value is required"
 }).then((res) => {
     console.log("Result:", res);
 });

@@ -5,7 +5,7 @@ apply: manually
 Release changelog generation
 
 Goal
-Produce clear, reviewer‑friendly release notes in English, grouped by change type and scoped to plugins when relevant.
+Produce clear, reviewer‑friendly release notes in English, grouped by change type.
 
 Scope
 - Applies to repository releases (tags) and to major feature branches that need aggregated notes.
