@@ -1,6 +1,6 @@
 {
     "name": "@wocker/area",
-    "version": "1.0.30",
+    "version": "1.0.31",
     "author": "Kris Papercut <krispcut@gmail.com>",
     "description": "Wocker workspace",
     "license": "MIT",
@@ -26,6 +26,7 @@
         "build:plugin-mariadb": "npm run await:core && npm run build --workspace @wocker/mariadb-plugin",
         "build:plugin-memcached": "npm run await:core && npm run build --workspace @wocker/memcached-plugin",
         "build:plugin-mongodb": "npm run await:core && npm run build --workspace @wocker/mongodb-plugin",
+        "build:plugin-npm": "npm run await:core && npm run build --workspace @wocker/npm-plugin",
         "build:plugin-pgsql": "npm run await:core && npm run build --workspace @wocker/pgsql-plugin",
         "build:plugin-ollama": "npm run await:core && npm run build --workspace @wocker/ollama-plugin",
         "build:plugin-redis": "npm run await:core && npm run build --workspace @wocker/redis-plugin",
@@ -46,6 +47,7 @@
         "watch:plugin-mariadb": "npm run await:core && npm run watch --workspace @wocker/mariadb-plugin",
         "watch:plugin-memcached": "npm run await:core && npm run watch --workspace @wocker/memcached-plugin",
         "watch:plugin-mongodb": "npm run await:core && npm run watch --workspace @wocker/mongodb-plugin",
+        "watch:plugin-npm": "npm run await:core && npm run watch --workspace @wocker/npm-plugin",
         "watch:plugin-pgsql": "npm run await:core && npm run watch --workspace @wocker/pgsql-plugin",
         "watch:plugin-ollama": "npm run await:core && npm run watch --workspace @wocker/ollama-plugin",
         "watch:plugin-redis": "npm run await:core && npm run watch --workspace @wocker/redis-plugin",

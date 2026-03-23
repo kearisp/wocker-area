@@ -53,6 +53,33 @@ const followStream = async (stream, log) => {
 
 const cli = new Cli();
 
+cli.command("inspect <image>")
+    .option("log", {
+        type: "boolean",
+        alias: "l"
+    })
+    .option("version", {
+        type: "string",
+        alias: "v",
+        default: "v1"
+    })
+    .option("workspace", {
+        type: "string",
+        alias: "w"
+    })
+    .action(async (input) => {
+        const {docker} = getContext(input.option("version"), input.option("workspace"));
+
+        const image = docker.getImage(input.argument("image"));
+
+        const info  = await image.inspect();
+
+        if(input.option("log")) {
+            console.log(info);
+        }
+        // console.log(input.option("workspace"));
+    });
+
 cli.command("pull <image>")
     .option("version", {
         type: "string",
