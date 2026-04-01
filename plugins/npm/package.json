@@ -1,0 +1,35 @@
+{
+    "name": "@wocker/npm-plugin",
+    "version": "0.0.1",
+    "author": "Kris Papercut <krispcut@gmail.com>",
+    "description": "NPM plugin for wocker",
+    "license": "MIT",
+    "keywords": [
+        "wocker",
+        "npm",
+        "plugin"
+    ],
+    "main": "./lib/index.js",
+    "types": "./lib/index.d.ts",
+    "homepage": "https://kearisp.github.io/wocker/docs/plugins/npm",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kearisp/wocker-npm-plugin.git"
+    },
+    "bugs": {
+        "url": "https://github.com/kearisp/wocker-npm-plugin/issues"
+    },
+    "scripts": {
+        "prepublishOnly": "npm run build",
+        "watch": "tsc -w",
+        "build": "tsc",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+        "@wocker/core": "^1.0.31",
+        "puppeteer": "^24.39.0"
+    },
+    "devDependencies": {
+        "typescript": "^5.9.3"
+    }
+}
