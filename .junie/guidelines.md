@@ -8,11 +8,10 @@ Wocker is a monorepo workspace for Docker-based web project management. The repo
 
 ```
 wocker-area/
-├── modules/          # System modules
-│   ├── docker/       # Docker management service
-│   └── docker-mock/  # Docker API mocking for tests
 ├── packages/         # Core packages
 │   ├── core/         # Core functionality with dependency injection
+│   ├── docker/       # Docker management service
+│   ├── docker-mock/  # Docker API mocking for tests
 │   ├── testing/      # Testing utilities and mocks
 │   ├── utils/        # Shared utilities
 │   └── ws/           # Workspace CLI tool
@@ -141,6 +140,9 @@ npm test --workspace @wocker/core -- demo.spec.ts
 
 ### Writing Tests
 
+1. **Test-Only Edits**: When asked to add or complete tests, modify **only** the test files. Do not change the production code to make tests pass.
+2. **Bug Reporting**: If tests fail due to an apparent bug in the production code, stop immediately and ask the user for guidance.
+
 Example test structure:
 
 ```typescript
@@ -150,10 +152,10 @@ describe("ComponentName", (): void => {
     it("should perform expected behavior", (): void => {
         // Arrange
         const input = 42;
-        
+
         // Act
         const result = myFunction(input);
-        
+
         // Assert
         expect(result).toBe(expected);
     });
@@ -193,14 +195,17 @@ import {OtherService} from "./OtherService";
 
 describe("MyService", (): void => {
     it("should work with mocked dependency", async (): Promise<void> => {
-        const mockValue = { getData: jest.fn() };
-        
-        const context = await Test.createTestingModule({
-            providers: [MyService, OtherService]
-        })
-        .overrideProvider(OtherService)
-        .useValue(mockValue)
-        .build();
+        const mockValue = {
+            getData: jest.fn()
+        };
+
+        const context = await Test
+            .createTestingModule({
+                providers: [MyService, OtherService]
+            })
+            .overrideProvider(OtherService)
+            .useValue(mockValue)
+            .build();
 
         const service = context.get(MyService);
         // ... test logic
@@ -217,26 +222,6 @@ Tests run with coverage enabled by default. Coverage reports are generated in:
 Coverage excludes:
 - `src/index.ts` (barrel exports)
 - `src/types/index.ts` (type definitions)
-
-## Code Style
-
-### EditorConfig Settings
-
-```
-indent_style = space
-tab_width = 4
-indent_size = tab (4 spaces)
-end_of_line = lf
-```
-
-### TypeScript Style
-
-- Use **4-space indentation**
-- Use **LF line endings**
-- Decorators are heavily used for dependency injection (@Injectable, @Module, etc.)
-- Arrow functions for callbacks and test definitions
-- Explicit return types on functions
-- Interface/type definitions in dedicated `types/` directories
 
 ## Dependency Injection
 
@@ -325,7 +310,8 @@ npm install <package> --workspace @wocker/<package-name>
 
 ### Versioning
 
-All packages currently share the same version (e.g. `1.0.28`) - consider synchronized versioning when releasing.
+Only `@wocker/core` and `@wocker/ws` share the same version. All other packages and plugins maintain their own independent versioning.
+Plugins and packages of version `1.x.x` are intended to be compatible with any version of `@wocker/core` within the `1.x.x` range.
 
 ### Package Manager
 
@@ -337,55 +323,4 @@ The workspace includes various Docker-related plugins. Some packages may interac
 
 #### Docker Mocking
 
-For tests involving Docker, the `@wocker/docker-mock-module` provides utilities to mock the Docker API. You can find examples in `modules/docker/src/services/ImageService.spec.ts` using `ModemMock`.
-
-### Binary Executables
-
-The `@wocker/ws` package provides a CLI tool accessible via the `ws` command when installed.
-
-## CLI Commands
-
-The `ws` command is the main entry point for managing workspaces. Commands are organized into namespaces.
-
-### Core Commands
-
-- `ws init` - Initialize a new project in the current directory
-- `ws start` - Start the project containers
-- `ws stop` - Stop the project containers
-- `ws ps` - List project containers and their status
-- `ws logs` - View project logs
-- `ws exec` - Execute a command in the project container
-- `ws run <script>` - Run a predefined script
-
-### Project Configuration
-
-- `ws config` - View or modify project configuration
-- `ws domain:add <domain>` - Add a domain to the project
-- `ws port:add <host>:<container>` - Map a host port to a container port
-- `ws volume:mount <path>` - Mount a volume
-
-### Plugin Management
-
-- `ws plugins` - List installed plugins
-- `ws plugin:install <name>` - Install a new plugin
-- `ws plugin:remove <name>` - Remove a plugin
-
-### Proxy and DNS
-
-- `ws proxy:start` - Start the global nginx proxy
-- `ws dns:start` - Start the local DNS server (experimental for now)
-- `ws certs` - Manage SSL certificates
-
-### Plugin-Specific Commands
-
-When a plugin is installed, it may add its own namespace of commands:
-
-- **MariaDB**: `ws mariadb:*` (e.g., `ws mariadb:create`, `ws mariadb:dump`)
-- **PostgreSQL**: `ws pgsql:*`
-- **Redis**: `ws redis:*`
-- **MongoDB**: `ws mongodb:*`
-
-To see the full list of available commands based on your installed plugins, run:
-```bash
-ws --help
-```
+For tests involving Docker, the `@wocker/docker-mock-module` provides utilities to mock the Docker API. You can find examples in `packages/docker/src/services/ImageService.spec.ts` using `ModemMock`.

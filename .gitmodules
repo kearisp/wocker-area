@@ -1,15 +1,18 @@
 [submodule "docs"]
 	path = docs
 	url = git@github.com:kearisp/wocker.git
-[submodule "modules/docker"]
-	path = modules/docker
-	url = git@github.com:kearisp/wocker-docker-module.git
-[submodule "modules/docker-mock"]
-	path = modules/docker-mock
-	url = git@github.com:kearisp/wocker-docker-mock-module.git
 [submodule "packages/core"]
 	path = packages/core
 	url = git@github.com:kearisp/wocker-core.git
+[submodule "packages/docker"]
+	path = packages/docker
+	url = git@github.com:kearisp/wocker-docker-module.git
+[submodule "packages/docker-mock"]
+	path = packages/docker-mock
+	url = git@github.com:kearisp/wocker-docker-mock-module.git
+[submodule "packages/prompts"]
+	path = packages/prompts
+	url = git@github.com:kearisp/wocker-prompts.git
 [submodule "packages/testing"]
 	path = packages/testing
 	url = git@github.com:kearisp/wocker-testing.git
@@ -19,6 +22,9 @@
 [submodule "packages/ws"]
 	path = packages/ws
 	url = git@github.com:kearisp/wocker-ws.git
+[submodule "plugins/ai"]
+	path = plugins/ai
+	url = git@github.com:kearisp/wocker-ai-plugin.git
 [submodule "plugins/cron"]
 	path = plugins/cron
 	url = git@github.com:kearisp/wocker-cron-plugin.git
@@ -37,9 +43,6 @@
 [submodule "plugins/mongodb"]
 	path = plugins/mongodb
 	url = git@github.com:kearisp/wocker-mongodb-plugin.git
-[submodule "plugins/ollama"]
-	path = plugins/ollama
-	url = git@github.com:kearisp/wocker-ollama-plugin.git
 [submodule "plugins/pgsql"]
 	path = plugins/pgsql
 	url = git@github.com:kearisp/wocker-pgsql-plugin.git

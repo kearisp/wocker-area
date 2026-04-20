@@ -1,5 +1,6 @@
 {
     "name": "@wocker/npm-plugin",
+    "type": "commonjs",
     "version": "0.0.1",
     "author": "Kris Papercut <krispcut@gmail.com>",
     "description": "NPM plugin for wocker",
@@ -26,10 +27,16 @@
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "dependencies": {
+        "@npmcli/config": "^10.10.0",
         "@wocker/core": "^1.0.31",
-        "puppeteer": "^24.39.0"
+        "imapflow": "^1.3.3",
+        "mailparser": "^3.9.8",
+        "node-html-parser": "^7.1.0",
+        "npm-registry-client": "^8.6.0"
     },
     "devDependencies": {
+        "@types/mailparser": "^3.4.6",
+        "@types/npmcli__config": "^6.0.3",
         "typescript": "^5.9.3"
     }
 }
