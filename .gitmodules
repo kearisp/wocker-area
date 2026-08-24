@@ -55,3 +55,6 @@
 [submodule "plugins/storage"]
 	path = plugins/storage
 	url = git@github.com:kearisp/wocker-storage-plugin.git
+[submodule "plugins/webdriver"]
+	path = plugins/webdriver
+	url = git@github.com:kearisp/wocker-webdriver-plugin.git

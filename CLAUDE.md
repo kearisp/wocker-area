@@ -83,6 +83,10 @@ const service = context.get(MyService);
 - `strictNullChecks: false`
 - Each package has `tsconfig.json` (dev) + `tsconfig.build.json` (excludes tests)
 
+## Code Style
+
+- No comments that just restate what the code does. Only comment a non-obvious WHY (an external quirk, a workaround, a gotcha) — if the code already makes it obvious, leave it uncommented.
+
 ## Versioning
 
 Only `@wocker/core` and `@wocker/ws` share the same version. All other packages and plugins version independently. Plugins at `1.x.x` are compatible with any `@wocker/core` `1.x.x`.
