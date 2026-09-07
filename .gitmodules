@@ -10,15 +10,15 @@
 [submodule "packages/docker-mock"]
 	path = packages/docker-mock
 	url = git@github.com:kearisp/wocker-docker-mock-module.git
+[submodule "packages/helpers"]
+	path = packages/helpers
+	url = git@github.com:kearisp/wocker-helpers.git
 [submodule "packages/prompts"]
 	path = packages/prompts
 	url = git@github.com:kearisp/wocker-prompts.git
 [submodule "packages/testing"]
 	path = packages/testing
 	url = git@github.com:kearisp/wocker-testing.git
-[submodule "packages/utils"]
-	path = packages/utils
-	url = git@github.com:kearisp/wocker-utils.git
 [submodule "packages/ws"]
 	path = packages/ws
 	url = git@github.com:kearisp/wocker-ws.git

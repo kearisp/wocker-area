@@ -87,6 +87,10 @@ const service = context.get(MyService);
 
 - No comments that just restate what the code does. Only comment a non-obvious WHY (an external quirk, a workaround, a gotcha) — if the code already makes it obvious, leave it uncommented.
 
+## Dependencies
+
+Never add, remove, or bump dependencies in any `package.json` by hand (including transitive fixes like dropping a now-redundant `@types/*` package). If a dependency change looks like the right fix, stop and ask instead of editing.
+
 ## Versioning
 
 Only `@wocker/core` and `@wocker/ws` share the same version. All other packages and plugins version independently. Plugins at `1.x.x` are compatible with any `@wocker/core` `1.x.x`.

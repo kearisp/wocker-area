@@ -5,7 +5,7 @@ import {
     Param,
     Event
 } from "@wocker/core";
-import {promptInput} from "@wocker/utils";
+import {promptInput} from "@wocker/prompts";
 import {NpmService} from "../services/NpmService";
 import {MailService} from "../services/MailService";
 
@@ -23,7 +23,8 @@ export class NpmController {
         console.log(process.stdin.isTTY, process.stdout.isTTY);
 
         await promptInput({
-            message: "npm password"
+            message: "npm password",
+            type: "password"
         });
 
         return "";

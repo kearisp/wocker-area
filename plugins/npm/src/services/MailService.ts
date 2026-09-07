@@ -1,6 +1,6 @@
 import {ImapFlow, ExistsEvent, MailboxLockObject} from "imapflow";
 import {Injectable, KeystoreService} from "@wocker/core";
-import {promptConfirm, promptInput} from "@wocker/utils";
+import {promptConfirm, promptInput} from "@wocker/prompts";
 import {Message} from "../makes/Message";
 import {
     MAIL_IMAP_HOST_KEY,
@@ -29,6 +29,7 @@ export class MailService {
 
         if(!this._lock) {
             this._lock = await this._client.getMailboxLock("INBOX");
+            this._lock.release();
         }
     }
 
@@ -143,8 +144,6 @@ export class MailService {
     }
 
     public async getLastMessage() {
-
-
         const client = await this.getClient();
 
         await client.connect();
@@ -184,10 +183,44 @@ export class MailService {
             throw new Error("Unconnected");
         }
 
+        const getMessage = async () => {
+            const message = await client.fetchOne("*", {
+                envelope: true,
+                source: true
+            });
+
+            if(!message || !message.envelope) {
+                return null;
+            }
+
+            const sender = message.envelope.from?.[0];
+
+            if(!sender) {
+                return null;
+            }
+
+            const senderEmail = `${sender.address}`.toLowerCase();
+            const expectedEmail = from.toLowerCase();
+
+            if(senderEmail !== expectedEmail) {
+                return null;
+            }
+
+            return new Message(message);
+        };
+
         return await new Promise<Message>((resolve, reject) => {
-            const timer = setTimeout(() => {
+            const timer = setTimeout(async () => {
                 cleanup();
-                reject(new Error(`Timeout waiting for email from ${from}`));
+
+                const message = await getMessage();
+
+                if(!message) {
+                    reject(new Error(`Timeout waiting for email from ${from}`));
+                    return;
+                }
+
+                resolve(message);
             }, timeout);
 
             const cleanup = () => {
@@ -209,28 +242,11 @@ export class MailService {
                 }
 
                 try {
-                    const message = await client.fetchOne("*", {
-                        envelope: true,
-                        source: true
-                    });
+                    const message = await getMessage();
 
-                    if(!message || !message.envelope) {
-                        return;
-                    }
-
-                    const sender = message.envelope.from?.[0];
-
-                    if(!sender) {
-                        return;
-                    }
-
-                    const senderEmail = `${sender.address}`.toLowerCase();
-                    const expectedEmail = from.toLowerCase();
-
-                    if(senderEmail === expectedEmail) {
+                    if(message) {
                         cleanup();
-
-                        resolve(new Message(message));
+                        resolve(message);
                     }
                 }
                 catch(err) {

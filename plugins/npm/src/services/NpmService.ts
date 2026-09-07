@@ -4,7 +4,7 @@ import {
     LogService
 } from "@wocker/core";
 import {promptInput} from "@wocker/prompts";
-import {Http} from "@wocker/utils";
+import {Http} from "@wocker/helpers";
 import Config from "@npmcli/config";
 import OS from "os";
 import Path from "path";
@@ -143,6 +143,8 @@ export class NpmService {
             console.log(res.status, res.headers, await res.json());
 
             const otp = await this.getOTP();
+
+            console.log("OTP:", otp);
 
             if(!otp) {
                 throw new Error("Can't get otp");
