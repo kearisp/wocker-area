@@ -86,6 +86,7 @@ const service = context.get(MyService);
 ## Code Style
 
 - No comments that just restate what the code does. Only comment a non-obvious WHY (an external quirk, a workaround, a gotcha) — if the code already makes it obvious, leave it uncommented.
+- CLI command names (`@Command(...)`) are single-colon (`namespace:action`) only — never nested/double-colon names like `namespace:action:action`. Use a flag (e.g. `--remove`/`-r`) on the existing command instead of a new nested command name.
 
 ## Dependencies
 
