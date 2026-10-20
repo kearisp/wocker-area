@@ -1,0 +1,39 @@
+name: Canny changelog
+description: "Creates a Canny changelog entry from GitHub release notes (### headings become #). Skips if an entry with the same title already exists."
+
+inputs:
+    api_key:
+        required: true
+        description: "Canny secret API key"
+    title:
+        required: true
+        description: "Entry title, e.g. the release tag"
+    body:
+        required: true
+        description: "Release notes in markdown"
+    labels:
+        required: false
+        default: ""
+        description: "Comma-separated Canny label names. Only labels already used by one of the last 100 entries can be resolved"
+    published:
+        required: false
+        default: "false"
+        description: "Publish immediately. By default the entry is created as a draft"
+    notify:
+        required: false
+        default: "false"
+        description: "Email subscribers after publishing"
+
+runs:
+    using: composite
+    steps:
+      - name: Create Canny entry
+        shell: bash
+        env:
+            CANNY_API_KEY: ${{ inputs.api_key }}
+            ENTRY_TITLE: ${{ inputs.title }}
+            RELEASE_BODY: ${{ inputs.body }}
+            LABELS: ${{ inputs.labels }}
+            PUBLISHED: ${{ inputs.published }}
+            NOTIFY: ${{ inputs.notify }}
+        run: bash "${{ github.action_path }}/canny-changelog.sh"

@@ -1,0 +1,35 @@
+{
+    "name": "@wocker/jira-plugin",
+    "type": "commonjs",
+    "version": "1.0.0",
+    "author": "Kris Papercut <krispcut@gmail.com>",
+    "description": "Download Jira tasks and Confluence pages as markdown for wocker",
+    "license": "MIT",
+    "main": "./lib/index.js",
+    "types": "./lib/index.d.ts",
+    "keywords": [
+        "wocker",
+        "plugin"
+    ],
+    "scripts": {
+        "prepublishOnly": "npm run build",
+        "watch": "tsc -w --project tsconfig.build.json",
+        "build": "tsc --project tsconfig.build.json",
+        "test": "jest --colors",
+        "test-watch": "jest --colors --watchAll --coverage"
+    },
+    "dependencies": {
+        "@wocker/core": "^1.1.7",
+        "@wocker/helpers": "^1.0.0",
+        "@wocker/prompts": "^1.0.0"
+    },
+    "devDependencies": {
+        "@types/jest": "^30.0.0",
+        "@types/node": "^24.13.3",
+        "@wocker/testing": "^1.0.10",
+        "jest": "^30.5.2",
+        "ts-jest": "^29.4.14",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.9.3"
+    }
+}

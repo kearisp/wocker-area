@@ -1,6 +1,6 @@
 {
     "name": "@wocker/area",
-    "version": "1.1.6",
+    "version": "1.1.7",
     "author": "Kris Papercut <krispcut@gmail.com>",
     "description": "Wocker workspace",
     "license": "MIT",
@@ -27,6 +27,7 @@
         "build:plugin-ai": "npm run await:core && npm run build --workspace @wocker/ai-plugin",
         "build:plugin-cron": "npm run await:core && npm run build --workspace @wocker/cron-plugin",
         "build:plugin-elastic": "npm run await:core && npm run build --workspace @wocker/elastic-plugin",
+        "build:plugin-jira": "npm run await:core && npm run build --workspace @wocker/jira-plugin",
         "build:plugin-mail": "npm run await:core && npm run build --workspace @wocker/mail-plugin",
         "build:plugin-mariadb": "npm run await:core && npm run build --workspace @wocker/mariadb-plugin",
         "build:plugin-memcached": "npm run await:core && npm run build --workspace @wocker/memcached-plugin",
@@ -92,6 +93,7 @@
         "@wocker/docker-module": "*",
         "@wocker/elastic-plugin": "*",
         "@wocker/helpers": "*",
+        "@wocker/jira-plugin": "*",
         "@wocker/mail-plugin": "*",
         "@wocker/mariadb-plugin": "*",
         "@wocker/memcached-plugin": "*",
